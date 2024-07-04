@@ -53,6 +53,7 @@ const defaultArgs = {
       comment: 'testing',
     },
   ],
+  showSlug: true,
 };
 
 /* Default controls */
@@ -87,6 +88,7 @@ const defaultControls = {
     control: { type: 'array' },
     description: 'List of existing feedback to be visualised on generated text',
   },
+  showSlug: { control: 'boolean' },
 };
 /**
  * More on writing stories with args: https://storybook.js.org/docs/web-components/writing-stories/args
@@ -164,7 +166,8 @@ export const Default = {
         output=${args.output}
         generation-id=${args['generation-id']}
         .feedbackList=${args['feedback-list']}
-        icon=${args.icon}>
+        icon=${args.icon}
+        ?showSlug=${args.showSlug}>
         ${Flag24({ slot: 'icon' })} ${args.output}
       </clabs-feedback>
     `,
@@ -206,7 +209,8 @@ export const Playground = {
         output=${args.output}
         generation-id=${args['generation-id']}
         .feedbackList=${args['feedback-list']}
-        icon=${args.icon}>
+        icon=${args.icon}
+        ?showSlug=${args.showSlug}>
         ${Flag24({ slot: 'icon' })} ${args.output}
       </clabs-feedback>
     `,

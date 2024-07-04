@@ -181,7 +181,7 @@ function openModal(customElementClass) {
  * @param {object} customElementClass Class functionality for the custom element
  * @returns {TemplateResult<1>} Lit html template
  */
-function showSlug(customElementClass) {
+function renderSlug(customElementClass) {
   const { _input: input, _model_id: model } = customElementClass;
   return html`
     <cds-slug size="2xs" alignment="bottom-left">
@@ -240,16 +240,19 @@ export function feedbackTemplate(customElementClass) {
     highlighted,
     calculateTextPosition,
     resetSelection,
+    showSlug,
   } = customElementClass;
+
   return html`
-    <div
-      style="display:flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;position:relative">
-      <div class="slug" @click=${resetSelection}>
-        ${feedbackList.length !== 0
-          ? html`<span class="notify"></span>`
-          : null}${showSlug(customElementClass)}
-      </div>
-    </div>
+    ${showSlug
+      ? html`<div class="slug-wrapper">
+          <div class="slug" @click=${resetSelection}>
+            ${feedbackList.length !== 0
+              ? html`<span class="notify"></span>`
+              : null}${renderSlug(customElementClass)}
+          </div>
+        </div>`
+      : null}
     ${Selection ? openFeedbackFlag(customElementClass) : null}
     <div id="container">
       ${feedbackList.length !== 0 && textPositions.length !== 0

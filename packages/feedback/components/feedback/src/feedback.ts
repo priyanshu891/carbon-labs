@@ -49,6 +49,13 @@ export class Feedback extends HostListenerMixin(LitElement) {
 
   @property()
   private feedbackList: FeedbackData[] = [];
+
+  /**
+   * Boolean property for displaying AI slug
+   */
+  @property({ type: Boolean, reflect: true })
+  showSlug = false;
+
   /**
    * State variable for Feedback Model
    */

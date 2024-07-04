@@ -18,6 +18,14 @@ $css--plex: true !default;
   margin-block: 1rem;
 }
 
+:host(#{$clabs-prefix}-feedback) .slug-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
 :host(#{$clabs-prefix}-feedback) cds-slug .secondary {
   color: $text-secondary;
 }
